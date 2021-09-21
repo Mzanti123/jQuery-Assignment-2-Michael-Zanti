@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title>Sqaure Footage Calculator</title>
+		
+		
+<style> 
+	
+	
+body { 
+	background-color: dimgrey; 
+	
+	}
+	
+	
+	
+button{ 
+	margin-left:25px; 
+	font-size: 12px; 
+	
+	}
+	
+	
+h1 { 
+	
+    background-color: crimson; 
+	color: whitesmoke; 
+	text-align: center; 
+	border-radius: 25px,25px,25px,25px;
+	
+	}
+	
+#container {
+  height: 225px;
+  width: 360px;
+  margin: 100px auto;
+  background: #f7f7f7;
+	}
+	
+.totalarea {
+		margin-left: 15px; 
+		
+	}
+	
+.length { 
+	
+		margin-left: 15px; 
+		}
+
+.width {
+		margin-left: 15px; 
+		
+		
+	}
+	
+</style>
+	
+</head>
+
+<body>
+	
+	
+<div id="container"> 
+	
+<h1> Calculate Sqaure Footage </h1>
+
+		
+<form class="length">Length
+  <input type="text" id="one" placeholder="Enter area length...">
+</form>
+  
+<br> 	
+		
+		
+<form class="width"> Width
+  <input type="text" id="two" placeholder="Enter area width...">
+</form>
+		
+<br> 
+		
+<button id="btn">Calculate</button> 
+		
+
+<p  class= "totalarea" id="output">Total area is...</p>
+
+		
+  
+</div>
+	
+	
+
+	
+	
+	
+</body>
+	
+<script> 
+	
+// Create two variables id for length "one" and  width ("two".
+var one, two; 
+	
+//create variable for output. 
+var output = document.getElementById("output");
+
+//create function that multiplies both variables. 
+function calculate() {
+  one = document.getElementById("one").value;
+  two = document.getElementById("two").value;   
+  output.innerHTML = one * two;
+}
+	
+//variable for button that displays output calculation. 
+
+var btn = document.getElementById("btn");
+btn.onclick = calculate;                      
+	
+
+</script>
+	
+	
+</html>

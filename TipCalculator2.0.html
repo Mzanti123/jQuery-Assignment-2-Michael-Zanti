@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+    <title>Tip Calculator</title>
+		
+		
+<style> 
+	
+	
+body { 
+	background-color: cadetblue; 
+	
+	}
+
+#bill_amount { 
+	color: dimgrey; 
+	}
+	
+#tip_percentage { 
+	color: dimgrey; 
+	}
+	
+	
+	
+	
+#billamount { 
+	margin-left: 5px; 
+	padding: 20px;  
+	}
+	
+#tippercentage { 
+	margin-left: 5px; 
+	padding: 20px;  
+	}
+	
+button{ 
+	margin-left:25px; 
+	font-size: 12px; 
+	
+	}
+	
+	
+h1 { 
+	
+    background-color: crimson; 
+	color: whitesmoke; 
+	text-align: center; 
+	border-radius: 25px,25px,25px,25px;
+	
+	}
+	
+#container {
+  height: 225px;
+  width: 360px;
+  margin: 100px auto;
+  background: #f7f7f7;
+	}
+	
+</style>
+	
+</head>
+
+<body>
+	
+	
+	<div id="container"> 
+	
+	<h1> Tip Calculator </h1>
+	
+
+
+		
+  <span id="billamount">Bill Amount:</span>
+  <input id="bill_amount" class="input-styling" type="number" placeholder="Bill Amount"> <br> 
+	
+  <br> 
+  
+  <span id="tippercentage"> Tip Percentage:</span>
+  <input id="tip_percentage" class="input-styling" type="number" placeholder="Tip Percentage">
+	
+  <br> 
+	
+  <br> 
+  
+  <button id="btn">Calculate</button>
+  
+  <span id="resultText"></span>
+
+</div>
+	
+	
+
+	
+	
+	
+</body>
+	
+<script> 
+
+// assigns the element to a variable
+const btn = document.getElementById('btn'); 
+
+// bind the click event to the function 'calculateBill'
+btn.addEventListener('click', calculateBill);
+
+// Return values from the input fields --> use them to set the variables
+function returnValueFromInput(elementID){
+  
+  // get raw input
+  // convert string --> int, otherwise math will fail
+  // use 'let' because we might change the value below based on the input type
+  let fieldValue = parseInt(document.getElementById(elementID).value);
+  
+  // check if arg for elementID includes the word 'percentage'
+  // if true then convert value to a decimal by dividing by 100
+  if (elementID.includes('percentage')){
+    fieldValue = fieldValue / 100;
+  }
+  
+  // check if input exists in html field, throw an alert if empty
+  if(!fieldValue){
+    const errorMessage = 'Dont forget to tip! Please enter values! ' + elementID + '!';
+    alert(errorMessage);
+  }
+  else {
+    return fieldValue;
+  } 
+}
+
+function calculateBill(){
+  
+  // get the target div to spit the output to
+  const resultTarget = document.getElementById('resultText');
+  
+  // get value for bill amount
+  const billAmount = returnValueFromInput('bill_amount');
+  
+  // get value for tip percentage, in decimal form
+  const tipPercentage = returnValueFromInput('tip_percentage');
+  
+  const tipAmount = billAmount * tipPercentage; 
+  const totalBill = billAmount + tipAmount;
+  const htmlOutput = 'Your total bill is $' + totalBill + '  Thank You!';
+  
+	
+  //put content into the view
+  resultTarget.innerText = htmlOutput;
+}
+
+</script>
+	
+	
+</html>

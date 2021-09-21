@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+		
+<title>Triangle Calculator</title>
+		
+		
+<style> 
+	
+	
+body { 
+	background-color: dimgrey; 
+	
+	}
+
+	
+button{ 
+	margin-left:25px; 
+	font-size: 12px; 
+	
+	}
+	
+	
+h1 { 
+	
+    background-color: cadetblue; 
+	color: whitesmoke; 
+	text-align: center; 
+	border-radius: 25px,25px,25px,25px;
+	
+	}
+	
+#container {
+    height: 250px;
+    width: 360px;
+    margin: 100px auto;
+    background: #f7f7f7;
+	}
+	
+	
+.totalarea {
+		
+		margin-left: 15px; 
+	}
+	
+.base { 
+	    margin-left:15px; 
+	
+	}
+	
+.height { 
+	  
+	    margin-left: 15px; 
+	
+	}
+	
+</style>
+	
+</head>
+
+<body>
+	
+	
+<div id="container"> 
+	
+<h1> Calculate Area of a Triangle</h1>
+
+		
+<form class="base"> Base of triange. 
+  <input type="text" id="one" placeholder="Enter base length...">
+</form>
+  
+	<br> 	
+		
+		
+<form class="height"> Height of triangle. 
+  <input type="text" id="two" placeholder="Enter height...">
+</form>
+		
+	<br>
+		
+		
+	<br> 
+		
+<button id="btn">Calculate</button> 
+		
+<p class="totalarea" id="output">  Total triangle area is... </p>
+		
+
+
+
+  
+</div>
+	
+	
+
+	
+	
+	
+</body>
+	
+<script> 
+	
+// Create two variables one for triangle length and one for triangle height. 
+var one, two; 
+	
+// Create a variable for total calculation of base and height. 
+var output = document.getElementById("output");
+
+//Calculate function multiplies both vairables and divides them by 2.  
+function calculate() {
+  one = document.getElementById("one").value;    
+  two = document.getElementById("two").value;    
+  output.innerHTML = (one * two ) / 2;
+} 
+
+	
+//Output claculation of variable one and variable two. 
+var btn = document.getElementById("btn");
+btn.onclick =  calculate;                      
+
+</script>
+	
+	
+
+</html>
